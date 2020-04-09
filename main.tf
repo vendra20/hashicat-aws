@@ -8,9 +8,7 @@ resource aws_vpc "hashicat" {
   enable_dns_hostnames = true
 
   tags = {
-    name = "${var.prefix}-vpc",
-      Billable="true",
-    Department="devops"
+    name = "${var.prefix}-vpc"
   }
 }
 
@@ -125,7 +123,9 @@ resource aws_instance "hashicat" {
   vpc_security_group_ids      = [aws_security_group.hashicat.id]
 
   tags = {
-    Name = "${var.prefix}-hashicat-instance"
+    Name = "${var.prefix}-hashicat-instance",
+      Billable="true",
+    Department="devops"
   }
 }
 
